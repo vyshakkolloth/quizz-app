@@ -1,14 +1,24 @@
 import react from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from './redux/slices/questions'
+import {
+ 
+  Route,
+  Routes,
+} from "react-router-dom";
+import Quizz from './pages/quizz';
+import Layout from "./layouts/quizzLayouut"
+
 function App() {
 
-  const count = useSelector((state) => state.questions.value)
-  const dispatch = useDispatch()
 
   return (
    <>
-   df
+     <Routes>
+      <Route element={<Layout/>}>
+        <Route path="/qui" element={<Quizz />} />
+        </Route>
+      </Routes> 
+      
+  
    </>
   )
 }
