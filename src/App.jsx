@@ -1,22 +1,31 @@
-import react from 'react'
+import react, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import {
- 
-  Route,
-  Routes,
+  Link,
+  Route,Routes
 } from "react-router-dom";
-import Quizz from './pages/quizz';
-import Layout from "./layouts/quizzLayouut"
+import AOS from 'aos';
+// import Quizz from './pages/quizz';
+// import Layout from "./layouts/quizzLayouut"
+import Routess from "./routes/quizzRoute"
+import Landing from "./pages/landing"
 
 function App() {
-
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
+const navigate= useNavigate()
   return (
    <>
-     <Routes>
-      <Route element={<Layout/>}>
-        <Route path="/qui" element={<Quizz />} />
-        </Route>
-      </Routes> 
+  
+   <Routes>
+     
+
+        <Route path="/"    element={<Landing />} />
+        <Route path="/*" exact element={<Routess />} />
+  
+      </Routes>  
+    
       
   
    </>
